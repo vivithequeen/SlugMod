@@ -13,7 +13,7 @@ Items: {
 
 	Spear: {
 		DisplayName: Spear
-		Tooltip: ""
+		Tooltip: A broken piece of re-bar from a long past civilization
 	}
 
 	JokeRifle: {
@@ -25,9 +25,22 @@ Items: {
 		DisplayName: Grenade Bullet
 		Tooltip: ""
 	}
+
+	InvItem: {
+		DisplayName: egg
+		Tooltip: Thanks Andrew
+	}
 }
 
 Projectiles: {
 	SpearProjectile.DisplayName: Spear Projectile
 	GrenadeBullet.DisplayName: Grenade Bullet
+	InvProjectile.DisplayName: Inv Projectile
+}
+
+Buffs: {
+	InvBuff: {
+		DisplayName: Haunted
+		Description: Thanks Andrew
+	}
 }

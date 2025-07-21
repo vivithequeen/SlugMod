@@ -5,6 +5,9 @@
     "Content/Projectiles/SpearProjectile.cs": "SlugMod.Content.Projectiles",
     "Content/Items/Weapons/JokeRifle.cs": "SlugMod.Content.Items.Weapons",
     "Content/Items/Ammo/GrenadeBullet.cs": "SlugMod.Content.Items.Ammo",
-    "Content/Projectiles/GrenadeBullet.cs": "SlugMod.Content.Projectiles"
+    "Content/Projectiles/GrenadeBullet.cs": "SlugMod.Content.Projectiles",
+    "Content/Pets/Inv/InvBuff.cs": "SlugMod.Content.Pets.Inv",
+    "Content/Pets/Inv/InvItem.cs": "SlugMod.Content.Pets.Inv",
+    "Content/Pets/Inv/InvProjectile.cs": "SlugMod.Content.Pets.Inv"
   }
 }
