@@ -1,0 +1,10 @@
+{
+  "rootNamespace": "SlugMod",
+  "fileMap": {
+    "Content/Items/Spear.cs": "SlugMod.Content.Items",
+    "Content/Projectiles/SpearProjectile.cs": "SlugMod.Content.Projectiles",
+    "Content/Items/Weapons/JokeRifle.cs": "SlugMod.Content.Items.Weapons",
+    "Content/Items/Ammo/GrenadeBullet.cs": "SlugMod.Content.Items.Ammo",
+    "Content/Projectiles/GrenadeBullet.cs": "SlugMod.Content.Projectiles"
+  }
+}

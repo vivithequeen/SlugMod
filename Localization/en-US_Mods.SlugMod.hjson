@@ -2,7 +2,7 @@
 
 Items: {
 	meow: {
-		DisplayName: "meow"
+		DisplayName: meow
 		Tooltip:
 			'''
 			Template of an item
@@ -10,4 +10,24 @@ Items: {
 			It's snowing on Mt.Fuji
 			'''
 	}
+
+	Spear: {
+		DisplayName: Spear
+		Tooltip: ""
+	}
+
+	JokeRifle: {
+		DisplayName: Joke Rifle
+		Tooltip: ""
+	}
+
+	GrenadeBullet: {
+		DisplayName: Grenade Bullet
+		Tooltip: ""
+	}
+}
+
+Projectiles: {
+	SpearProjectile.DisplayName: Spear Projectile
+	GrenadeBullet.DisplayName: Grenade Bullet
 }
