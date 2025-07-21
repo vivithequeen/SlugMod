@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "x/+DAgC1L00=",
+  "success": true,
+  "projectFilePath": "/home/violet/.local/share/Terraria/tModLoader/ModSources/SlugMod/SlugMod.csproj",
+  "expectedPackageFiles": [
+    "/home/violet/.nuget/packages/tmodloader.codeassist/0.1.5/tmodloader.codeassist.0.1.5.nupkg.sha512"
+  ],
+  "logs": []
+}

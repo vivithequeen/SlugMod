@@ -30,6 +30,11 @@ Items: {
 		DisplayName: egg
 		Tooltip: Thanks Andrew
 	}
+
+	FivePebblesSummonItem: {
+		DisplayName: Five Pebbles Summon Item
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -44,3 +49,5 @@ Buffs: {
 		Description: Thanks Andrew
 	}
 }
+
+NPCs.FivePebbles.DisplayName: Five Pebbles
