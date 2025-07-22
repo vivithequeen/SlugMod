@@ -1,4 +1,6 @@
 
+using Iced.Intel;
+using Microsoft.Build.Tasks;
 using Microsoft.Xna.Framework;
 using SlugMod.Content.Items.Consumables;
 using System;
@@ -19,6 +21,9 @@ namespace SlugMod.Content.NPCs.Bosses
     {
 
         public int MoveTimer = 0;
+        public int AttackTimer = 0;
+        float angle = MathHelper.Pi;
+        Random rnd = new Random();
         public override void SetStaticDefaults()
         {
             Main.npcFrameCount[Type] = 1;
@@ -88,7 +93,7 @@ namespace SlugMod.Content.NPCs.Bosses
             Vector2 fromPlayer = NPC.Center - player.Center;
 
 
-            float angle = fromPlayer.ToRotation();
+            /*float angle = fromPlayer.ToRotation();
             float twelfth = MathHelper.Pi / 6;
             angle += MathHelper.Pi + Main.rand.NextFloat(-twelfth, twelfth);
             if (angle > MathHelper.TwoPi)
@@ -101,17 +106,59 @@ namespace SlugMod.Content.NPCs.Bosses
             }
             Vector2 relativeDestination = angle.ToRotationVector2() * distance;
             pos = player.Center + relativeDestination;
-            NPC.netUpdate = true;
             
+            */
+            NPC.netUpdate = true;
+
+            if (MoveTimer >= 120)
+            {
+                MoveTimer = 0;
+                float newAngle = (float)(rnd.NextDouble() * MathHelper.TwoPi);
+                while (Math.Abs(newAngle - angle) < MathHelper.Pi / 3.0)
+                {
+                    newAngle = (float)(rnd.NextDouble() * MathHelper.TwoPi);
+                }
+                angle = newAngle;
+                //make so he cant chose somewhere too close
+                //dash?
+            }
+
+            else
+            {
+                MoveTimer += 1;
+            }
+            if (AttackTimer >= 180)
+            {
+
+                if (NPC.HasValidTarget && Main.netMode != NetmodeID.MultiplayerClient)
+                {
+                    AttackTimer = 0;
+                    var source = NPC.GetSource_FromAI();
+                    Vector2 position = NPC.Center;
+                    Vector2 targetPosition = Main.player[NPC.target].Center;
+                    Vector2 direction = targetPosition - position;
+                    direction.Normalize();
+                    float projSpeed = 10f;
+                    int type = ProjectileID.SniperBullet;
+                    int damage = NPC.damage; //If the projectile is hostile, the damage passed into NewProjectile will be applied doubled, and quadrupled if expert mode, so keep that in mind when balancing projectiles if you scale it off NPC.damage (which also increases for expert/master)
+                    Projectile.NewProjectile(source, position, direction * projSpeed, type, damage, 0f, Main.myPlayer);
+                }
+            }
+            else
+            {
+                AttackTimer += 1;
+            }
+            pos.X = player.Center.X + distance * (float)Math.Cos((double)(angle));
+            pos.Y = player.Center.Y + distance * (float)Math.Sin((double)(angle));
 
 
             // Move along the vector
             Vector2 toDestination = pos - NPC.Center;
             Vector2 toDestinationNormalized = toDestination.SafeNormalize(Vector2.UnitY);
             float speed = Math.Min(distance, toDestination.Length());
-            NPC.velocity = toDestinationNormalized * speed / 30;
+            NPC.velocity = toDestinationNormalized * speed / 10;
 
-     
+
 
             //NPC.rotation = NPC.velocity.ToRotation() - MathHelper.PiOver2;
 
