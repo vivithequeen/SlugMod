@@ -32,7 +32,12 @@ Items: {
 	}
 
 	FivePebblesSummonItem: {
-		DisplayName: Five Pebbles Summon Item
+		DisplayName: suspisious looking pebble
+		Tooltip: ""
+	}
+
+	FivePebblesBossBag: {
+		DisplayName: Five Pebbles Boss Bag
 		Tooltip: ""
 	}
 }

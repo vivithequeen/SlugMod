@@ -8,6 +8,7 @@
     "Content/Projectiles/GrenadeBullet.cs": "SlugMod.Content.Projectiles",
     "Content/Pets/Inv/InvBuff.cs": "SlugMod.Content.Pets.Inv",
     "Content/Pets/Inv/InvItem.cs": "SlugMod.Content.Pets.Inv",
-    "Content/Pets/Inv/InvProjectile.cs": "SlugMod.Content.Pets.Inv"
+    "Content/Pets/Inv/InvProjectile.cs": "SlugMod.Content.Pets.Inv",
+    "Content/Items/Consumables/FivePebblesBossBag.cs": "SlugMod.Content.Items.Consumables"
   }
 }

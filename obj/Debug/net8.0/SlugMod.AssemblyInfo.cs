@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SlugMod")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2f39a340010937bea5899ca81b00871fb1c0190f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6d765666d3c923c77e2a7005d6b5bf893e0d3043")]
 [assembly: System.Reflection.AssemblyProductAttribute("SlugMod")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SlugMod")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

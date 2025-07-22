@@ -23,7 +23,7 @@ namespace SlugMod.Content.Projectiles
 			Projectile.friendly = true; // Can the projectile deal damage to enemies?
 			Projectile.hostile = false; // Can the projectile deal damage to the player?
 			Projectile.DamageType = DamageClass.Ranged; // Is the projectile shoot by a ranged weapon?
-			Projectile.penetrate = 5; // How many monsters the projectile can penetrate. (OnTileCollide below also decrements penetrate for bounces as well)
+			Projectile.penetrate = 1; // How many monsters the projectile can penetrate. (OnTileCollide below also decrements penetrate for bounces as well)
 			Projectile.timeLeft = 600; // The live time for the projectile (60 = 1 second, so 600 is 10 seconds)
 			Projectile.alpha = 255; // The transparency of the projectile, 255 for completely transparent. (aiStyle 1 quickly fades the projectile in) Make sure to delete this if you aren't using an aiStyle that fades in. You'll wonder why your projectile is invisible.
 			Projectile.light = 0.5f; // How much light emit around the projectile
@@ -55,7 +55,7 @@ namespace SlugMod.Content.Projectiles
 					Projectile.velocity.Y = -oldVelocity.Y;
 				}
 			}
-
+			PrepareBombToBlow();
 			return false;
 		}
 
@@ -73,11 +73,35 @@ namespace SlugMod.Content.Projectiles
 
 			return true;
 		}
+		public override void PrepareBombToBlow() {
+			Projectile.tileCollide = false; // This is important or the explosion will be in the wrong place if the bomb explodes on slopes.
+			Projectile.alpha = 255; // Set to transparent. This projectile technically lives as transparent for about 3 frames
 
-		public override void OnKill(int timeLeft) {
+			// Change the hitbox size, centered about the original projectile center. This makes the projectile damage enemies during the explosion.
+			Projectile.Resize(250, 250);
+
+			Projectile.damage = 250; // Bomb: 100, Dynamite: 250
+			Projectile.knockBack = 10f; // Bomb: 8f, Dynamite: 10f
+		}
+		public override void OnKill(int timeLeft)
+		{
 			// This code and the similar code above in OnTileCollide spawn dust from the tiles collided with. SoundID.Item10 is the bounce sound you hear.
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
+			if (Projectile.owner == Main.myPlayer) {
+				int explosionRadius = 2; // Bomb: 4, Dynamite: 7, Explosives & TNT Barrel: 10
+				int minTileX = (int)(Projectile.Center.X / 16f - explosionRadius);
+				int maxTileX = (int)(Projectile.Center.X / 16f + explosionRadius);
+				int minTileY = (int)(Projectile.Center.Y / 16f - explosionRadius);
+				int maxTileY = (int)(Projectile.Center.Y / 16f + explosionRadius);
+
+				// Ensure that all tile coordinates are within the world bounds
+				Utils.ClampWithinWorld(ref minTileX, ref minTileY, ref maxTileX, ref maxTileY);
+ 
+				// These 2 methods handle actually mining the tiles and walls while honoring tile explosion conditions
+				bool explodeWalls = Projectile.ShouldWallExplode(Projectile.Center, explosionRadius, minTileX, maxTileX, minTileY, maxTileY);
+				Projectile.ExplodeTiles(Projectile.Center, explosionRadius, minTileX, maxTileX, minTileY, maxTileY, explodeWalls);
+			}
 		}
 	}
 }
