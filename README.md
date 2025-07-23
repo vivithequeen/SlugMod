@@ -1,5 +1,6 @@
 # SLUGMOD!!!
 A simple terraria mod that adds a few rain world items and a five pebbles/looks to the moon boss :))
+https://www.youtube.com/watch?v=0uH9otAytDs
 
 ## Features???
 
@@ -15,7 +16,7 @@ dropped by five pebbles!!
 thanks andrew. dropped by looks to the moon.
 
 showcase video
-https://www.youtube.com/watch?v=0uH9otAytDs
+
 
 ### WHY!!???
 rain world + terraira = very awesome
