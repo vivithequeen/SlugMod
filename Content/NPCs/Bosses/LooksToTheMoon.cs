@@ -17,14 +17,13 @@ using Terraria.ModLoader;
 namespace SlugMod.Content.NPCs.Bosses
 {
     [AutoloadBossHead]
-    public class FivePebbles : ModNPC
+    public class LooksToTheMoon : ModNPC
     {
 
         public int MoveTimer = 0;
         public int AttackTimer = 0;
         Vector2 targetPosition;
         float angle = MathHelper.Pi;
-        bool onSecondPhase = false;
 
         Random rnd = new Random();
         public override void SetStaticDefaults()
@@ -68,40 +67,17 @@ namespace SlugMod.Content.NPCs.Bosses
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<FivePebblesBossBag>()));
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<LooksToTheMoonBossBag>()));
         }
         public override void AI()
         {
-            Player player = Main.player[NPC.target];
-            if (!onSecondPhase)
-            {
-                if (NPC.life < NPC.lifeMax / 2)
-                {
-                    onSecondPhase = true;
-                    SoundEngine.PlaySound(SoundID.Roar, player.position);
-
-                    int type = ModContent.NPCType<LooksToTheMoon>();
-
-                    if (Main.netMode != NetmodeID.MultiplayerClient)
-                    {
-                        // If the player is not in multiplayer, spawn directly
-                        NPC.SpawnOnPlayer(player.whoAmI, type);
-                    }
-                    else
-                    {
-                        // If the player is in multiplayer, request a spawn
-                        // This will only work if NPCID.Sets.MPAllowedEnemies[type] is true, which we set in MinionBossBody
-                        NetMessage.SendData(MessageID.SpawnBossUseLicenseStartEvent, number: player.whoAmI, number2: type);
-                    }
-                }
-            }
             // This should almost always be the first code in AI() as it is responsible for finding the proper player target
             if (NPC.target < 0 || NPC.target == 255 || Main.player[NPC.target].dead || !Main.player[NPC.target].active)
             {
                 NPC.TargetClosest();
             }
 
-            
+            Player player = Main.player[NPC.target];
 
             if (player.dead)
             {
@@ -174,7 +150,7 @@ namespace SlugMod.Content.NPCs.Bosses
                         direction.Normalize();
                         float projSpeed = 10f;
 
-                        int type = ProjectileID.HallowBossRainbowStreak;
+                        int type = ProjectileID.GolemFist;
 
                         int damage = NPC.damage;
 
@@ -186,7 +162,7 @@ namespace SlugMod.Content.NPCs.Bosses
 
                         float projSpeed = 10f;
 
-                        int type = ProjectileID.SniperBullet;
+                        int type = ProjectileID.RocketSkeleton;
 
                         int damage = NPC.damage;
 
@@ -196,12 +172,12 @@ namespace SlugMod.Content.NPCs.Bosses
                     {
                         float projSpeed = 10f;
 
-                        int type = ProjectileID.StarWrath;
+                        int type = ProjectileID.RayGunnerLaser;
 
                         int damage = NPC.damage;
 
                         Projectile.NewProjectile(source, position, direction * projSpeed, type, damage, 0f, Main.myPlayer);
-
+                        
                     }
                 }
                 AttackTimer = 0;

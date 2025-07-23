@@ -40,6 +40,16 @@ Items: {
 		DisplayName: Five Pebbles Boss Bag
 		Tooltip: ""
 	}
+
+	LooksToTheMoonBossBag: {
+		DisplayName: Looks To The Moon Boss Bag
+		Tooltip: ""
+	}
+
+	VultureMask: {
+		DisplayName: Vulture Mask
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -55,4 +65,7 @@ Buffs: {
 	}
 }
 
-NPCs.FivePebbles.DisplayName: Five Pebbles
+NPCs: {
+	FivePebbles.DisplayName: Five Pebbles
+	LooksToTheMoon.DisplayName: Looks To The Moon
+}

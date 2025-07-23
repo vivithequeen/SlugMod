@@ -9,6 +9,9 @@
     "Content/Pets/Inv/InvBuff.cs": "SlugMod.Content.Pets.Inv",
     "Content/Pets/Inv/InvItem.cs": "SlugMod.Content.Pets.Inv",
     "Content/Pets/Inv/InvProjectile.cs": "SlugMod.Content.Pets.Inv",
-    "Content/Items/Consumables/FivePebblesBossBag.cs": "SlugMod.Content.Items.Consumables"
+    "Content/Items/Consumables/FivePebblesBossBag.cs": "SlugMod.Content.Items.Consumables",
+    "Content/NPCs/Bosses/LooksToTheMoon.cs": "SlugMod.Content.NPCs.Bosses",
+    "Content/Items/Consumables/LooksToTheMoonBossBag.cs": "SlugMod.Content.Items.Consumables",
+    "Content/Items/Armor/VultureMask.cs": "SlugMod.Content.Items.Armor"
   }
 }

@@ -26,11 +26,6 @@ namespace SlugMod.Content.Pets.Inv
 		}
 
 		// Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
-		public override void AddRecipes() {
-			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.Wood, 1);
-			recipe.AddTile(TileID.WorkBenches);
-			recipe.Register();
-		}
+
 	}
 }

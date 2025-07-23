@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 namespace SlugMod.Content.Items.Consumables
 {
 	// Basic code for a boss treasure bag
-	public class FivePebblesBossBag : ModItem
+	public class LooksToTheMoonBossBag : ModItem
 	{
 		public override void SetStaticDefaults() {
 			// This set is one that every boss bag should have.
@@ -39,8 +39,7 @@ namespace SlugMod.Content.Items.Consumables
 		{
 			// We have to replicate the expert drops from MinionBossBody here
 
-			itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Weapons.JokeRifle>(), 1, 1, 1));
-			itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Armor.VultureMask>(), 1, 1, 1));
+			itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<Pets.Inv.InvItem>(), 1, 1, 1));
 			itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(ModContent.NPCType<FivePebbles>()));
 			
 			
