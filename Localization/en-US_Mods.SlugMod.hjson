@@ -23,7 +23,7 @@ Items: {
 
 	GrenadeBullet: {
 		DisplayName: Grenade Bullet
-		Tooltip: ""
+		Tooltip: a explosive stolen from a scavenger
 	}
 
 	InvItem: {
@@ -33,7 +33,7 @@ Items: {
 
 	FivePebblesSummonItem: {
 		DisplayName: suspisious looking pebble
-		Tooltip: ""
+		Tooltip: Filled with rot
 	}
 
 	FivePebblesBossBag: {
@@ -48,7 +48,7 @@ Items: {
 
 	VultureMask: {
 		DisplayName: Vulture Mask
-		Tooltip: ""
+		Tooltip: Found with large Vultures from a land high above
 	}
 }
 
