@@ -22,10 +22,11 @@ dropped by five pebbles!!\
 ### egg.
 thanks andrew. dropped by looks to the moon.\
 ![inv](https://github.com/vivithequeen/SlugMod/blob/main/screenshots/Screenshot%20from%202025-07-22%2022-24-01.png)
-showcase video
+
 
 
 ### WHY!!???
 rain world + terraira = very awesome
 ### HOW!!!???
 terraria modding tools are awesome. the work the developers of tModLoader have done with the mod loader is so incredibly immpresive
+[![Athena Award Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Faward.athena.hackclub.com%2Fapi%2Fbadge)](https://award.athena.hackclub.com?utm_source=readme)
